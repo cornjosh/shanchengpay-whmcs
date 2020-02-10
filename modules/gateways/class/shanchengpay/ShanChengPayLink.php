@@ -54,7 +54,7 @@ class ShanChengPayLink
             return $this->getErrorHttp($exception->getMessage());
         }
 
-        return $this->getJavaScript($params).$this->getWechatLogo($params, "middle").'<br>'.$this->getWechatHttp($result);
+        return $this->getJavaScript($params).$this->getWechatLogo($params, "middle").$this->getWechatHttp($result);
     }
 
     private function getWechatHttp($result)
@@ -97,7 +97,7 @@ class ShanChengPayLink
 
         $imgLang = $params['img'];
         $img = '/modules/gateways/shanchengpay/assets/images/WeChat/WeChat_big_'.$imgLang.'.png';
-        return "<img src='".$img."' alt='欢迎使用 微信支付' style=\"height: ".$height."em;\"/>";
+        return "<img class = 'center-block' src='".$img."' alt='欢迎使用 微信支付' style=\"height: ".$height."em;\"/>";
     }
 
     /**
@@ -108,12 +108,12 @@ class ShanChengPayLink
      */
     private function getWechatDesktop($result)
     {
-        $status = '<div id="qrcode"></div><br><p>请使用微信扫码支付</p><script>
+        $status = '<div id="qrcode" style="display: flex; justify-content: center; text-align: center;"></div><p class="text-center">请使用微信扫码支付</p><script>
 window.onload = function() {
   $("#qrcode").qrcode({
   render: "canvas",
-  width: 200,
-  height: 200,
+  width: 150,
+  height: 150,
   text: "{$qr_code}"
   });
 }
@@ -130,7 +130,7 @@ window.onload = function() {
      */
     private function getWechatMobile($result)
     {
-        $status = '<div id="qrcode"></div><br><p>暂<strong>不支持截图识别</strong>，请使用其他设备打开后扫码支付</p><script>
+        $status = '<div id="qrcode"></div><br><p>请截图后使用微信相册识别支付</p><script>
 window.onload = function() {
   $("#qrcode").qrcode({
   render: "canvas",
@@ -180,7 +180,7 @@ window.onload = function() {
 							    timer:5000,
 							})
 							.then((value) => {
-							    window.location.href = "/cart.php?a=complete";
+							    location.reload();
 							});
 						}
 					}
