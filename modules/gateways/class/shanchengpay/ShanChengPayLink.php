@@ -130,7 +130,7 @@ window.onload = function() {
      */
     private function getWechatMobile($result)
     {
-        $status = '<div id="qrcode"></div><br><p>请截图后使用微信相册识别支付</p><script>
+        $status = '<div id="qrcode"></div><br><p class="text-center">请截图后使用微信相册识别支付</p><script>
 window.onload = function() {
   $("#qrcode").qrcode({
   render: "canvas",

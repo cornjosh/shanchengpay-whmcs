@@ -14,8 +14,8 @@ if (!defined("WHMCS")) {
 function shanchengpay_MetaData()
 {
     return [
-        'DisplayName' => '山城支付 - 微信支付',
-        'APIVersion' => '1.1'
+        'DisplayName' => '微信 - 023Pay',
+        'APIVersion' => '2.0'
     ];
 }
 
